@@ -1,0 +1,67 @@
+// Now Improving the code and following standards
+
+/* For that we need the to get the required Base addresses
+ * In this case:
+ * Peripheral Base
+ * From Peripheral base, the AHB base and the IOPORT base
+ */
+
+#include <stdint.h>
+#define PERIPHERAL_BASE (0x40000000UL)
+
+/*
+ * Defining the base address of buses
+ */
+
+#define AHB_OFFSET      (0x00020000UL)
+#define AHB_PERIPH_BASE (PERIPHERAL_BASE + AHB_OFFSET)
+
+#define IOPORT_OFFSET   (0x10000000UL)
+#define IOPORT_BASE     (PERIPHERAL_BASE + IOPORT_OFFSET)
+
+/*
+ * Getting the RCC BASE
+ */
+
+#define RCC_OFFSET      (0x00001000UL)
+#define RCC_BASE        (AHB_PERIPH_BASE + RCC_OFFSET)
+
+/*
+ * Getting GPIOA BASE
+ */
+
+#define GPIOA_OFFSET    (0x00000000UL)
+#define GPIOA_BASE       (IOPORT_BASE + GPIOA_OFFSET)
+
+/*
+ * Getting USER PIN 4
+ */
+#define LED_PIN         (1U<<5)
+
+#define __IO            volatile
+
+/*
+ * Setting up the registers for the RCC and GPIO
+ */
+typedef struct
+{
+	__IO uint32_t register_placeholder[13];
+	__IO uint32_t IOPENR;
+
+}RCC_TypeDef;
+
+typedef struct
+{
+	__IO uint32_t MODER;
+	__IO uint32_t register_placeholder[4];
+	__IO uint32_t ODR;
+}GPIO_typedef;
+
+
+/*
+ * Now, casting the registers in the RCC and GPIOA
+ */
+
+#define GPIOA          (GPIO_typedef *) GPIO_BASE
+#define RCC            (RCC_TypeDef *) RCC_BASE
+

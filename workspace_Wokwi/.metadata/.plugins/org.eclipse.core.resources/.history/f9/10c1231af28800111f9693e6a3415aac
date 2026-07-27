@@ -1,0 +1,7 @@
+// Now Improving the code and following standards
+
+/* For that we need the to get the required Base addresses
+ * In this case:
+ * Peripheral Base
+ * From Peripheral base, the RCC base and the GPIOPORT base
+ */

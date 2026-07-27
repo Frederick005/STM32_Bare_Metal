@@ -1,0 +1,17 @@
+15:10:35 **** Incremental Build of configuration Debug for project 1_led_toggle_addr_struct_format ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -c -I../Inc -I"C:/Learning/Embedded/Chip_Headers/CMSIS/Device/ST/STM32C0xx/Include" -I"C:/Learning/Embedded/Chip_Headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "1_led_toggle_addr_struct_format.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\Learning\Embedded\STM32_Bare_Metal\workspace_Wokwi\1_led_toggle_addr_struct_format\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="1_led_toggle_addr_struct_format.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 1_led_toggle_addr_struct_format.elf
+ 
+arm-none-eabi-size  1_led_toggle_addr_struct_format.elf 
+arm-none-eabi-objdump -h -S 1_led_toggle_addr_struct_format.elf  > "1_led_toggle_addr_struct_format.list"
+   text	   data	    bss	    dec	    hex	filename
+    464	      0	   1568	   2032	    7f0	1_led_toggle_addr_struct_format.elf
+Finished building: default.size.stdout
+ 
+Finished building: 1_led_toggle_addr_struct_format.list
+ 
+
+15:10:39 Build Finished. 0 errors, 0 warnings. (took 3s.252ms)
+
