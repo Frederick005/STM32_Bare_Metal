@@ -1,0 +1,11 @@
+#include "stm32f4xx.h"
+
+void main()
+{
+
+	RCC->AHB
+	while(1)
+	{
+
+	}
+}

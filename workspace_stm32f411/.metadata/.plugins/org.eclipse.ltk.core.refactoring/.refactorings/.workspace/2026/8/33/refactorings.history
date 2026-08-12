@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy Project &apos;2_Uart_driver&apos;" description="Copy Project &apos;2_Uart_driver&apos;" destination="C:/Learning/Embedded/STM32_Bare_Metal/workspace_stm32f411" element="/2_Uart_driver" flags="7" id="org.eclipse.ltk.core.refactoring.copyproject.resource" name="2_Uart_driver_complete" stamp="1786397424920"/>
+</session>
