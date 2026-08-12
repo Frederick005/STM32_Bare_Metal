@@ -696,3 +696,15 @@ COM4
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-08-12 12:39:57.804
 !MESSAGE port: COM4
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-08-12 12:42:10.935
+!MESSAGE Indexed '2_Uart_driver_tx' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-08-12 12:42:27.962
+!MESSAGE Indexed '2_Uart_driver_rx' (5 sources, 67 headers) in 0.611 sec: 3,262 declarations; 5,509 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-08-12 12:44:26.148
+!MESSAGE Indexed '1_Led_toggle_with_input' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-08-12 12:44:36.538
+!MESSAGE Indexed '3_Uart_driver_rx' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
