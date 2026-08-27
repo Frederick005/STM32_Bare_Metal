@@ -708,3 +708,6 @@ COM4
 
 !ENTRY org.eclipse.cdt.core 1 0 2026-08-12 12:44:36.538
 !MESSAGE Indexed '3_Uart_driver_rx' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-08-12 18:16:40.687
+!MESSAGE Indexed '4_Interrupts' (4 sources, 66 headers) in 0.994 sec: 3,260 declarations; 5,506 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
