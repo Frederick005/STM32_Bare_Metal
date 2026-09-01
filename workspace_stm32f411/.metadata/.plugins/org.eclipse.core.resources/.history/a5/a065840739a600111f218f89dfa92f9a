@@ -1,0 +1,37 @@
+#include "stdio.h"
+#include "stm32f4xx.h"
+#include "stdint.h"
+#include "exti.h"
+#include "uart.h"
+
+int main()
+{
+	// Initializing the PC13 pin as an interrupt pin
+	exti_pc13_init();
+
+	// Initializing UART
+	uart_tx_init();
+
+	while (1)
+	{
+	}
+
+}
+
+void exti13_callback(void)
+{
+
+}
+
+void EXTI15_10_IRQHandler(void)
+{
+	if((EXTI->PR & EXTI_LINE_13) != 0)
+		{
+			// Clear the pr flag
+			EXTI->PR |= EXTI_LINE_13;
+
+			// execute this funcion
+			exti13_callback();
+		}
+}
+

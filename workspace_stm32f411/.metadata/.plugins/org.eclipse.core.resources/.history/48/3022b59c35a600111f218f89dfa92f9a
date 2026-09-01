@@ -1,0 +1,8 @@
+#include "exti.h"
+
+void exti_pc13_init()
+{
+	// Giving clock to GPIO user button is PC13
+	RCC->
+
+}

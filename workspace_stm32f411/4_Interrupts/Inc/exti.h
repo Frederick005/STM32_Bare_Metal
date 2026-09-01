@@ -8,6 +8,9 @@
 #ifndef EXTI_H_
 #define EXTI_H_
 
+#define EXTI_LINE_13   (1U<<13)
+#include "stm32f4xx.h"
+#include "stdint.h"
 
-
+void exti_pc13_init(void);
 #endif /* EXTI_H_ */
