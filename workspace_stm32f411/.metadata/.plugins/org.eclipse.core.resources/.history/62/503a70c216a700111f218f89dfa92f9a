@@ -15,11 +15,9 @@ and if the main needs some macros then that should go in the
 #define EXTI_IMR_13	 (1U<<13)
 #define EXTI_FTSR_13 (1U<<13)
 
-void exti_pc13_init(void)
+void exti_pc13_init()
 {
 	// Disable Interrupts
-	// DOnt do it in production. also you should have a
-	// good reason for doing so.
 	__disable_irq();
 
 	// Giving clock to GPIO user button is PC13
@@ -47,8 +45,6 @@ void exti_pc13_init(void)
 	 * defined in the stm32f411xe.h file
 	 *
 	 * Also NVIC_EnableIRQ function is in the core_cm4.h file
-	 *
-	 * Finally, provide a priority while wring production code.
 	 * */
 	NVIC_EnableIRQ(EXTI15_10_IRQn);
 
