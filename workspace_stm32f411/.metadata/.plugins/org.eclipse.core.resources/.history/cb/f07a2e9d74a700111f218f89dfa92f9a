@@ -8,6 +8,8 @@ static void exti13_callback (void);
 
 int main()
 {
+	// Initializing the PC13 pin as an interrupt pin
+	exti_pc13_init();
 
 	// Initializing UART
 	uart_tx_init();
@@ -15,14 +17,6 @@ int main()
 	// Initializing the user led pin
 	RCC->AHB1ENR |= (1U<<0);
 	GPIOA->MODER = (GPIOA->MODER & ~(3U<<10))|(1U<<10);
-
-	// Initializing the PC13 pin as an interrupt pin
-	// NOTE: Try to enable the interrupts only after the
-	// peripherals and required by the ISR have been initialized,
-	// so that the interrupt cannot arrive before the system
-	// is ready to handle it.
-	exti_pc13_init();
-
 	while (1)
 	{
 	}
