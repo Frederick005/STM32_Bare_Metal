@@ -1,0 +1,17 @@
+14:58:52 **** Incremental Build of configuration Debug for project 2_2_Uart_driver_tx_oversampling ****
+make -j20 all 
+arm-none-eabi-gcc "../Src/uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Include" -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/uart.d" -MT"Src/uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/uart.o"
+arm-none-eabi-gcc -o "2_2_Uart_driver_tx_oversampling.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Learning\Embedded\STM32_Bare_Metal\workspace_stm32f411\2_2_Uart_driver_tx_oversampling\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="2_2_Uart_driver_tx_oversampling.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 2_2_Uart_driver_tx_oversampling.elf
+ 
+arm-none-eabi-size  2_2_Uart_driver_tx_oversampling.elf 
+arm-none-eabi-objdump -h -S 2_2_Uart_driver_tx_oversampling.elf  > "2_2_Uart_driver_tx_oversampling.list"
+   text	   data	    bss	    dec	    hex	filename
+   3672	     92	   1900	   5664	   1620	2_2_Uart_driver_tx_oversampling.elf
+Finished building: default.size.stdout
+ 
+Finished building: 2_2_Uart_driver_tx_oversampling.list
+ 
+
+14:58:53 Build Finished. 0 errors, 0 warnings. (took 678ms)
+

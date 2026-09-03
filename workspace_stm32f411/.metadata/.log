@@ -863,3 +863,50 @@ COM4
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-01 23:49:26.466
 !MESSAGE port: COM4
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-03 14:20:16.736
+!MESSAGE Indexed '2_2_Uart_driver_tx_oversampling' (4 sources, 61 headers) in 1.33 sec: 2,686 declarations; 3,796 references; 6 unresolved inclusions; 30 syntax errors; 579 unresolved names (8.2%)
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-03 14:58:21.166
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+COM6
+COM5
+COM4
+COM7
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-03 14:58:21.167
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-03 14:58:21.168
+!MESSAGE port: COM6
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-03 14:58:21.169
+!MESSAGE port: COM5
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-03 14:58:21.169
+!MESSAGE port: COM4
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-03 14:58:21.170
+!MESSAGE port: COM7
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-03 14:59:30.524
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+COM6
+COM5
+COM4
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-03 14:59:30.524
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-03 14:59:30.525
+!MESSAGE port: COM6
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-03 14:59:30.525
+!MESSAGE port: COM5
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-03 14:59:30.526
+!MESSAGE port: COM4
