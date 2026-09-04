@@ -910,3 +910,9 @@ COM4
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-03 14:59:30.526
 !MESSAGE port: COM4
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-03 15:02:50.538
+!MESSAGE Indexed '2_3_Uart_driver_rx_oversampling' (4 sources, 61 headers) in 0.381 sec: 2,689 declarations; 3,818 references; 6 unresolved inclusions; 30 syntax errors; 579 unresolved names (8.2%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-03 15:03:25.342
+!MESSAGE Indexed '2__Uart_driver_tx' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)

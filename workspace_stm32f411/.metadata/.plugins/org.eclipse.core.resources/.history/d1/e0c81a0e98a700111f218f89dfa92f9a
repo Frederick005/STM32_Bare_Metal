@@ -17,7 +17,7 @@ int __io_putchar(int ch)
 }
 
 
-void uart_tx_init(void)
+void uart_tx_init()
 {
 	/*What all we need to do*/
 

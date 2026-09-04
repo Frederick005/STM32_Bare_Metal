@@ -57,6 +57,35 @@ void uart_tx_init(void)
 	USART2->CR1 |= (1U<<13);
 }
 
+void uart_rx_init (void)
+{
+	// Enabling clock for USART
+	RCC->APB1ENR |= (1U<<17);
+
+	// Enable clock for GPIOA
+	RCC->AHB1ENR |= (1U);
+
+	// PA3 is required for USART2 rx
+	GPIOA->MODER = (GPIOA->MODER & ~(3U)) | (1U<<7);
+
+	// Setting the alternate functon for the GPIOA PA3
+	GPIOA->AFR[0] &= (FU<<12);
+	GPIOA->AFR[0] |= (1U<<12)|(1U<<13)|(1U<<14);
+
+	// Set the USART parameter
+	// Enabling USART enable in CR1
+	USART2->CR1 |= (1U<<2);
+
+	// Set oversampling to 8
+	USART2->CR1 |= OVER8_EN;
+
+	// Set the baudrate
+	set_baud_rate (USART2, PERIPH_CLK, BAUDRATE);
+
+	// Enabling USART2
+	USART2->CR1 |= (1U<<13);
+}
+
 void uart_write(int ch)
 {
 	while((USART2->SR & (1U<<7))==0){}

@@ -11,6 +11,5 @@
 #include "stdint.h"
 
 void uart_tx_init(void);
-void uart_rx_init(void);
 
 #endif /* UART_H_ */
