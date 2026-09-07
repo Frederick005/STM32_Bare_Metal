@@ -1,28 +1,36 @@
-14:58:04 **** Build of configuration Debug for project 2_2_Uart_driver_tx_oversampling ****
+15:47:38 **** Incremental Build of configuration Debug for project 2_3_Uart_driver_rx_oversampling ****
 make -j20 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f411retx.d" -MT"Startup/startup_stm32f411retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f411retx.o" "../Startup/startup_stm32f411retx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Include" -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Include" -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Include" -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
 arm-none-eabi-gcc "../Src/uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Include" -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/uart.d" -MT"Src/uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/uart.o"
-arm-none-eabi-gcc -o "2_2_Uart_driver_tx_oversampling.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Learning\Embedded\STM32_Bare_Metal\workspace_stm32f411\2_2_Uart_driver_tx_oversampling\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="2_2_Uart_driver_tx_oversampling.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 2_2_Uart_driver_tx_oversampling.elf
+arm-none-eabi-gcc -o "2_3_Uart_driver_rx_oversampling.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Learning\Embedded\STM32_Bare_Metal\workspace_stm32f411\2_3_Uart_driver_rx_oversampling\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="2_3_Uart_driver_rx_oversampling.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 2_3_Uart_driver_rx_oversampling.elf
  
-arm-none-eabi-size  2_2_Uart_driver_tx_oversampling.elf 
-arm-none-eabi-objdump -h -S 2_2_Uart_driver_tx_oversampling.elf  > "2_2_Uart_driver_tx_oversampling.list"
+arm-none-eabi-size  2_3_Uart_driver_rx_oversampling.elf 
+arm-none-eabi-objdump -h -S 2_3_Uart_driver_rx_oversampling.elf  > "2_3_Uart_driver_rx_oversampling.list"
    text	   data	    bss	    dec	    hex	filename
-   3672	     92	   1900	   5664	   1620	2_2_Uart_driver_tx_oversampling.elf
+   1060	      0	   1568	   2628	    a44	2_3_Uart_driver_rx_oversampling.elf
 Finished building: default.size.stdout
  
-Finished building: 2_2_Uart_driver_tx_oversampling.list
+Finished building: 2_3_Uart_driver_rx_oversampling.list
  
-14:58:52 **** Incremental Build of configuration Debug for project 2_2_Uart_driver_tx_oversampling ****
+15:48:01 **** Incremental Build of configuration Debug for project 2_3_Uart_driver_rx_oversampling ****
 make -j20 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f411retx.d" -MT"Startup/startup_stm32f411retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f411retx.o" "../Startup/startup_stm32f411retx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Include" -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Include" -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Include" -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
 arm-none-eabi-gcc "../Src/uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F411RETx -DSTM32F411xE -c -I../Inc -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Include" -I"C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/uart.d" -MT"Src/uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/uart.o"
-arm-none-eabi-gcc -o "2_2_Uart_driver_tx_oversampling.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Learning\Embedded\STM32_Bare_Metal\workspace_stm32f411\2_2_Uart_driver_tx_oversampling\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="2_2_Uart_driver_tx_oversampling.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 2_2_Uart_driver_tx_oversampling.elf
+arm-none-eabi-gcc -o "2_3_Uart_driver_rx_oversampling.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Learning\Embedded\STM32_Bare_Metal\workspace_stm32f411\2_3_Uart_driver_rx_oversampling\STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="2_3_Uart_driver_rx_oversampling.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 2_3_Uart_driver_rx_oversampling.elf
  
-arm-none-eabi-size  2_2_Uart_driver_tx_oversampling.elf 
-arm-none-eabi-objdump -h -S 2_2_Uart_driver_tx_oversampling.elf  > "2_2_Uart_driver_tx_oversampling.list"
+arm-none-eabi-size  2_3_Uart_driver_rx_oversampling.elf 
+arm-none-eabi-objdump -h -S 2_3_Uart_driver_rx_oversampling.elf  > "2_3_Uart_driver_rx_oversampling.list"
    text	   data	    bss	    dec	    hex	filename
-   3672	     92	   1900	   5664	   1620	2_2_Uart_driver_tx_oversampling.elf
+   1060	      0	   1568	   2628	    a44	2_3_Uart_driver_rx_oversampling.elf
 Finished building: default.size.stdout
  
-Finished building: 2_2_Uart_driver_tx_oversampling.list
+Finished building: 2_3_Uart_driver_rx_oversampling.list
  

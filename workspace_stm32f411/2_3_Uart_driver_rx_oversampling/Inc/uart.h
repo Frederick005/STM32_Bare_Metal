@@ -10,6 +10,8 @@
 #include "stm32f4xx.h"
 #include "stdint.h"
 
-void uart_tx_init();
+void uart_tx_init(void);
+void uart_rx_init(void);
+char uart_read(void);
 
 #endif /* UART_H_ */

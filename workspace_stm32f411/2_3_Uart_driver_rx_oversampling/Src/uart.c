@@ -66,10 +66,10 @@ void uart_rx_init (void)
 	RCC->AHB1ENR |= (1U);
 
 	// PA3 is required for USART2 rx
-	GPIOA->MODER = (GPIOA->MODER & ~(3U)) | (1U<<7);
+	GPIOA->MODER = (GPIOA->MODER & ~(3U<<6)) | (1U<<7);
 
 	// Setting the alternate functon for the GPIOA PA3
-	GPIOA->AFR[0] &= (FU<<12);
+	GPIOA->AFR[0] &= ~(15U<<12);
 	GPIOA->AFR[0] |= (1U<<12)|(1U<<13)|(1U<<14);
 
 	// Set the USART parameter
@@ -84,6 +84,13 @@ void uart_rx_init (void)
 
 	// Enabling USART2
 	USART2->CR1 |= (1U<<13);
+}
+
+char uart_read(void)
+{
+	while ((USART2->SR & (1U<<5))== 0){}
+
+	return USART2->DR;
 }
 
 void uart_write(int ch)

@@ -1,0 +1,126 @@
+#include "uart.h"
+
+#define PERIPH_CLK  16000000
+#define BAUDRATE    115200
+#define OVER8_EN    (1U<<15)
+
+static void set_baud_rate(USART_TypeDef * USARTx, uint32_t periph_clk, uint32_t baudrate);
+static uint16_t calculate_baud_rate(uint32_t periph_clk, uint32_t baudrate);
+
+
+void uart_write(int ch);
+
+int __io_putchar(int ch)
+{
+	uart_write(ch);
+	return ch;
+}
+
+
+void uart_tx_init(void)
+{
+	/*What all we need to do*/
+
+	// Uart2 is the one that is connected via the stlink to the pc
+	// It required pins pa2 and pa3. hence giveclock to gpioa
+	RCC->AHB1ENR |= (1U<<0);
+
+	// Now we need to see which bus has USART" connection
+	// APB1 has Usart2. so we need to provide clock to it
+	RCC->APB1ENR |= (1U<<17);
+
+	//Set the mode of the GPIOA pin 2 and 3
+	//For USART TX
+	GPIOA->MODER = (GPIOA->MODER & ~(3U<<4))|(1U<<5);
+
+	//For USART RX
+	/*Insert code here*/
+
+	// Set up the alternate function which was af07 which is "111"
+	// each pin uses 4 bits and are number afrl0....afrl7
+	// i.e All pin 0s use afrl0 and so on.
+	// For pins beyond 7, the afrh registers need to be accessed.
+
+	GPIOA->AFR[0] &= ~(15U<<8);
+	GPIOA->AFR[0] |= ((1U<<8)|(1U<<9)|(1U<<10));
+
+	// Enabling the usart direction i.e. tx using the control registers
+	USART2->CR1 = (1U<<3);
+
+	// Setting the oversampling to 1 so that sampling is done by 8
+	USART2->CR1 |= (OVER8_EN);
+
+	//setting the baudrate for the usart
+	set_baud_rate (USART2, PERIPH_CLK, BAUDRATE);
+
+	// Enabling the USART
+	USART2->CR1 |= (1U<<13);
+}
+
+void uart_rx_init (void)
+{
+	// Enabling clock for USART
+	RCC->APB1ENR |= (1U<<17);
+
+	// Enable clock for GPIOA
+	RCC->AHB1ENR |= (1U);
+
+	// PA3 is required for USART2 rx
+	GPIOA->MODER = (GPIOA->MODER & ~(3U)) | (1U<<7);
+
+	// Setting the alternate functon for the GPIOA PA3
+	GPIOA->AFR[0] &= (FU<<12);
+	GPIOA->AFR[0] |= (1U<<12)|(1U<<13)|(1U<<14);
+
+	// Set the USART parameter
+	// Enabling USART enable in CR1
+	USART2->CR1 |= (1U<<2);
+
+	// Set oversampling to 8
+	USART2->CR1 |= OVER8_EN;
+
+	// Set the baudrate
+	set_baud_rate (USART2, PERIPH_CLK, BAUDRATE);
+
+	// Enabling USART2
+	USART2->CR1 |= (1U<<13);
+}
+
+void uart_write(int ch)
+{
+	while((USART2->SR & (1U<<7))==0){}
+
+	//Filling values in the data register.
+	USART2->DR = (ch & 0xFF);
+}
+
+static void set_baud_rate(USART_TypeDef * USARTx, uint32_t periph_clk, uint32_t baudrate)
+{
+	// We need to calculate the baudrate for both oversampling frequencies
+
+	if ((USARTx->CR1 & (OVER8_EN))==0)
+	{
+		USARTx->BRR = calculate_baud_rate(periph_clk, baudrate);
+	}
+	else
+	{
+		uint32_t intermediate_baudrate = calculate_baud_rate(periph_clk, baudrate);
+
+		// because we are oversampling by 8 hence division has to be by 8 i.e 3 bits
+		uint32_t mantissa = intermediate_baudrate >> 3;
+
+		// Calculate the fraction part
+		uint32_t fraction = intermediate_baudrate & (7U);
+
+		// Finally assigning the baudrate to the BRR register
+		USARTx->BRR = (mantissa<<4) | fraction;
+
+		// Note that the mantissa is being shifted by 4 to accomodate the
+		// 3rd bit which has to be assigned as 0
+	}
+}
+
+static uint16_t calculate_baud_rate(uint32_t periph_clk, uint32_t baudrate)
+{
+	return ((periph_clk + (baudrate / 2U))/baudrate);
+}

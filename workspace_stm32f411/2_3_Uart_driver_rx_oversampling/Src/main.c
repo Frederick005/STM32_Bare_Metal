@@ -3,15 +3,26 @@
 #include "stdint.h"
 #include "uart.h"
 
+char key;
 int main()
 {
-	uart_tx_init();
+	uart_rx_init();
+
+	RCC->AHB1ENR |=(1U<<0);
+	GPIOA->MODER = (GPIOA->MODER & ~(3U<<10))|(1U<<10);
 
 	while (1)
 	{
-		printf("Hello you fine people!!\n");
+		key = uart_read();
+		if (key=='1')
+		{
+			GPIOA->ODR |= (1U<<5);
+		}
+		else
+		{
+			GPIOA->ODR &= ~(1U<<5);
+		}
 	}
-
 }
 
 
