@@ -1,8 +1,9 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:4_Interrupts,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_2_Uart_driver_tx_oversampling,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_Uart_driver Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_Uart_driver,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_Uart_driver_tx,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_3_Uart_driver_rx_oversampling
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:4_Interrupts,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_4_USART_driver_clean
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_3_Uart_driver_rx_oversampling/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_4_USART_driver_clean/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_Uart_driver\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_Uart_driver\ Debug/activeLaunchTarget=null\:---
