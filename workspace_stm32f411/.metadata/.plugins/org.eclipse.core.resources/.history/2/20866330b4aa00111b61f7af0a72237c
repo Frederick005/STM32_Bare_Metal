@@ -2,7 +2,7 @@
 
 #define PERIPH_CLK        16000000
 #define BAUDRATE          115200
-#define USART2_OVER8_EN   (1U<<15)
+#define OVER8_EN          (1U<<15)
 #define USART2_APB1_EN    (1U<<17)
 #define USART2_GPIOA_EN   (1U<<0)
 #define USART2_PA2_MODER  (1U<<5)
@@ -56,7 +56,7 @@ void uart_tx_init(void)
 	USART2->CR1 = (1U<<3);
 
 	// Setting the oversampling to 1 so that sampling is done by 8
-	USART2->CR1 |= USART2_OVER8_EN;
+	USART2->CR1 |= (OVER8_EN);
 
 	//setting the baudrate for the usart
 	set_baud_rate (USART2, PERIPH_CLK, BAUDRATE);
@@ -85,7 +85,7 @@ void uart_rx_init (void)
 	USART2->CR1 |= (1U<<2);
 
 	// Set oversampling to 8
-	USART2->CR1 |= USART2_OVER8_EN;
+	USART2->CR1 |= OVER8_EN;
 
 	// Set the baudrate
 	set_baud_rate (USART2, PERIPH_CLK, BAUDRATE);
@@ -99,7 +99,7 @@ void uart_tx_rx_init(void)
 	// Initializing and enabling the USART2
 
 	// Enabling clock for USART
-	RCC->APB1ENR |= USART2_APB1_EN;
+	RCC->APB1ENR |= USART_AHB_EN;
 
 	// Enable clock for GPIOA
 	RCC->AHB1ENR |= USART2_GPIOA_EN;
@@ -131,9 +131,6 @@ void uart_tx_rx_init(void)
 	// Enable Tx and Rx direction in USART2.
 	USART2->CR1 |= (USART2_TX_EN | USART2_RX_EN);
 
-	// Set oversampling to 8
-	USART2->CR1 |= USART2_OVER8_EN;
-
 	// Set the Baudrate
 	set_baud_rate (USART2, PERIPH_CLK, BAUDRATE);
 
@@ -160,7 +157,7 @@ static void set_baud_rate(USART_TypeDef * USARTx, uint32_t periph_clk, uint32_t 
 {
 	// We need to calculate the baudrate for both oversampling frequencies
 
-	if ((USARTx->CR1 & (USART2_OVER8_EN))==0)
+	if ((USARTx->CR1 & (OVER8_EN))==0)
 	{
 		USARTx->BRR = calculate_baud_rate(periph_clk, baudrate);
 	}

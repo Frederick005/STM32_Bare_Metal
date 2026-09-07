@@ -6,7 +6,7 @@
 char key;
 int main()
 {
-	uart_tx_rx_init();
+	uart_rx_init();
 
 	RCC->AHB1ENR |=(1U<<0);
 	GPIOA->MODER = (GPIOA->MODER & ~(3U<<10))|(1U<<10);

@@ -160,7 +160,7 @@ static void set_baud_rate(USART_TypeDef * USARTx, uint32_t periph_clk, uint32_t 
 {
 	// We need to calculate the baudrate for both oversampling frequencies
 
-	if ((USARTx->CR1 & (USART2_OVER8_EN))==0)
+	if ((USARTx->CR1 & (OVER8_EN))==0)
 	{
 		USARTx->BRR = calculate_baud_rate(periph_clk, baudrate);
 	}
