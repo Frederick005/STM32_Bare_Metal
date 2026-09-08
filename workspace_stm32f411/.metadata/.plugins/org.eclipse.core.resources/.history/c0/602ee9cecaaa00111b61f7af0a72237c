@@ -1,0 +1,43 @@
+#include "stdio.h"
+#include "stm32f4xx.h"
+#include "stdint.h"
+#include "exti.h"
+#include "uart.h"
+
+static void exti13_callback (void);
+
+int main()
+{
+
+	// Initializing UART
+	uart_tx_rx_interrupt_init();
+
+	// Initializing the user led pin
+	RCC->AHB1ENR |= (1U<<0);
+	GPIOA->MODER = (GPIOA->MODER & ~(3U<<10))|(1U<<10);
+
+	while (1)
+	{
+	}
+
+}
+
+static void exti13_callback(void)
+{
+	printf("BTN pressed \n\r");
+	GPIOA->ODR ^= (1U<<5);
+}
+
+void USART2_IRQHandler(void)
+{
+	if (USART2->DR == '1')
+	{
+		printf("USART2 Interrupt Generated\n\r");
+		GPIOA->ODR |= (1U<<5);
+	}
+	else
+	{
+		GPIOA->ODR &= ~(1U<<5);
+	}
+}
+

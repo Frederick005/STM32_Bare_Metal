@@ -1,3 +1,6 @@
 1788783583546	Copy Project '2_3_Uart_driver_rx_oversampling'
 1788783601484	Rename resource '2_3_Uart_driver_rx_oversampling'
 1788783614100	Rename resource '2_2_Uart_driver_tx_oversampling'
+1788784077695	Rename resource '4_Interrupts'
+1788784409952	Copy Project '3_1_Interrupts_GPIOC'
+1788793975496	Rename resource '3_1_Interrupts_USART'
