@@ -1,0 +1,57 @@
+#include "exti.h"
+
+/*Imagine you put #define TX_PIN 2 in your uart.h file.
+Next week, you write an SPI driver. You create spi.h
+and accidentally write #define TX_PIN 5 (because SPI
+also transmits data).
+
+Hence keep definitions specific to a module in the c file
+and if the main needs some macros then that should go in the
+.h files
+*/
+#define GPIOC_EN     (1U<<2)
+#define SYSCFG_EN    (1U<<14)
+#define EXTI_PC13    (1U<<5)
+#define EXTI_IMR_13	 (1U<<13)
+#define EXTI_FTSR_13 (1U<<13)
+
+void exti_pc13_init(void)
+{
+	// Disable Interrupts
+	// DOnt do it in production. also you should have a
+	// good reason for doing so.
+	__disable_irq();
+
+	// Giving clock to GPIO user button is PC13
+	RCC->AHB1ENR |= GPIOC_EN;
+
+	// Setting the mode on the PC13 pin
+	// Clearing both the bits so that it is 00 for input mode
+	GPIOC->MODER = (GPIOC->MODER & ~(3U<<26));
+
+	// Provide clock to SYSCFG for using EXTI
+	RCC->APB2ENR |= SYSCFG_EN;
+
+	// Set the EXTI for PC13
+	SYSCFG->EXTICR[3] |= EXTI_PC13;
+
+	// Set the interrupt mask register on the EXTI
+	EXTI->IMR |= EXTI_IMR_13;
+
+	// Set the falling trigger selection register
+	EXTI->FTSR |= EXTI_FTSR_13;
+
+	// Find the irq handler id.
+	/*
+	 * EXTI15_10_IRQn is the number if the interrupt
+	 * defined in the stm32f411xe.h file
+	 *
+	 * Also NVIC_EnableIRQ function is in the core_cm4.h file
+	 *
+	 * Finally, provide a priority while wring production code.
+	 * */
+	NVIC_EnableIRQ(EXTI15_10_IRQn);
+
+	// Enabling Interrupts
+	__enable_irq();
+}

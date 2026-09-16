@@ -1,0 +1,16 @@
+#include <systick.h>
+
+/* We are using the internal clock which is 16Mhz i.e., 16000000
+ * ticks per second. 1ms (1/1000) then will have 16000 ticks.
+ * Hence that's what will be fed to the SYSTICK RELOAD register
+*/
+#define SYSTICK_DELAY_1MS        16000
+
+#define SYSTICK_EN               (1U<<0)
+#define SYSTICK_CLK	             (1U<<2)
+
+
+void systick_init(void)
+{
+	SysTick->LOAD = SYSTICK_DELAY_1MS - 1;
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy Project &apos;3_2_Interrupts_USART&apos;" description="Copy Project &apos;3_2_Interrupts_USART&apos;" destination="C:/Learning/Embedded/STM32_Bare_Metal/workspace_stm32f411" element="/3_2_Interrupts_USART" flags="7" id="org.eclipse.ltk.core.refactoring.copyproject.resource" name="4__SysTick_driver" stamp="1789545265524"/>
+</session>
