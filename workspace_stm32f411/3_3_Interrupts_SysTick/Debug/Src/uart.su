@@ -1,0 +1,8 @@
+C:/Learning/Embedded/Chip_Headers_Stm32f411/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
+../Src/uart.c:22:5:__io_putchar	16	static
+../Src/uart.c:28:6:uart_tx_rx_init	8	static
+../Src/uart.c:75:6:uart_tx_rx_interrupt_init	8	static
+../Src/uart.c:125:6:uart_read	4	static
+../Src/uart.c:132:6:uart_write	16	static
+../Src/uart.c:140:13:set_baud_rate	40	static
+../Src/uart.c:166:17:calculate_baud_rate	16	static

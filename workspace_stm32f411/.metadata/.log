@@ -2326,3 +2326,21 @@ COM7
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-16 11:43:41.798
 !MESSAGE port: 
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-09-16 11:47:01.242
+!MESSAGE Indexed '3_3_Interrupts_SysTick' (6 sources, 67 headers) in 0.411 sec: 2,873 declarations; 4,395 references; 4 unresolved inclusions; 30 syntax errors; 579 unresolved names (7.4%)
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-16 12:22:19.869
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM7
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-16 12:22:19.869
+!MESSAGE port: COM7
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-16 12:23:54.782
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-09-16 12:23:54.782
+!MESSAGE port: 

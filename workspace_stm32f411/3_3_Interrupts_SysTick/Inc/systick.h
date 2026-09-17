@@ -1,0 +1,17 @@
+/*
+ * systick.h
+ *
+ *  Created on: Sep 16, 2026
+ *      Author: anany
+ */
+
+#ifndef SYSTICK_H_
+#define SYSTICK_H_
+
+#include "stm32f4xx.h"
+#include "stdint.h"
+
+void systick_init(void);
+void systick_delay (uint32_t delay);
+
+#endif /* SYSTICK_H_ */
